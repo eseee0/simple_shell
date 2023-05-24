@@ -9,8 +9,6 @@
  * Return: void
  */
 
-#include "shell.h"
-#include <sys/wait.h>
 
 void shell_prompt(char **av, char **env)
 {
