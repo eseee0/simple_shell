@@ -1,12 +1,12 @@
 #include <stdio.h>
 
 /**
- * main - program that prints the sum of even numbers less than 10
+ * evensum - program that prints the sum of even numbers less than 10
  *
  * Return: always 0
  */
 
-int main(void)
+int evensum(void)
 {
 	int a;
 	int sum = 0;
