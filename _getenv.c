@@ -15,7 +15,7 @@ char *_getenv(char *key)
 
         while (*ptr)
         {
-                if (_strncmp(*ptr, key, namelen) == 0 && (*ptr) [namelen] == '=')
+                if (_strcmp(*ptr, key, namelen) == 0 && (*ptr) [namelen] == '=')
                         return (&((*ptr)[namelen + 1]));
         ptr++;
         }
@@ -35,7 +35,7 @@ size_t _strlen(const char *str)
 }
 
 
-int _strncmp(const char *s1, const char *s2, size_t n)
+int _strcmp(const char *s1, const char *s2, size_t n)
 {
         while (n > 0 && *s1 == *s2)
         {

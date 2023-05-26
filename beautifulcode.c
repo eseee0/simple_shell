@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <unistd.h>
 
 /**
  * evensum - program that prints the sum of even numbers less than 10
@@ -19,6 +20,6 @@ int evensum(void)
                 }
 
         }
-printf("sum: %d\n", sum);
-return (0);
+	write(STDOUT_FILENO, "sum: %d\n", sum);
+	return (0);
 }

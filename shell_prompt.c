@@ -78,7 +78,7 @@ void shell_prompt(char **av, char **env)
         while (1)
         {
                 if (isatty(STDIN_FILENO))
-                        printf("$ ");
+                        write(STDOUT_FILENO, "$ ", 2);
 
                 num_char = getline(&buff, &buffsize, stdin);
                 if (num_char == -1)
@@ -109,10 +109,14 @@ void shell_prompt(char **av, char **env)
                 }
                 if (wpid == 0)
                 {
-                        if (execve(av[0], av, env) == -1)
-                                printf("%s: No such file or directory\n", av[0]);
-
-                }
+			if (access(av[0], F_OK) != -1)
+				execve(av[0], av, env);
+			else
+			{
+				write(STDERR_FILENO, av[0], _strlen(av[0]));
+				write(STDERR_FILENO, ": No such file or directory\n", 28);
+			}
+		}
                 else
                         wait(&status);
         }
