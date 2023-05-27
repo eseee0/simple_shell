@@ -9,15 +9,15 @@
 
 void _eputs(char *str)
 {
-        int i = 0;
+	int i = 0;
 
-        if (!str)
-                return;
-        while (str[i] != '\0')
-        {
-                write(2, &str[i], 1);
-                i++;
-        }
+	if (!str)
+		return;
+	while (str[i] != '\0')
+	{
+		write(2, &str[i], 1);
+		i++;
+	}
 }
 
 /**
@@ -29,7 +29,7 @@ void _eputs(char *str)
 
 int _eputchar(char c)
 {
-        return (write(2, &c, 1));
+	return (write(2, &c, 1));
 }
 
 /**
@@ -42,7 +42,7 @@ int _eputchar(char c)
 
 int _putfd(char c, int fd)
 {
-        return write(fd, &c, 1);
+	return (write(fd, &c, 1));
 }
 
 /**
