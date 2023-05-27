@@ -9,18 +9,18 @@
 
 int _atoi(char *str)
 {
-        int result = 0;
-        int i;
+	int result = 0;
+	int i;
 
-        for (i = 0; str[i] != '\0'; i++)
-        {
-                if (str[i] >= '0' && str[i] <= '9')
-                {
-                        result *= 10;
-                        result += str[i] - '0';
-                }
-                else if (str[i] == '-')
-                        result *= -1;
-        }
-        return (result);
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		if (str[i] >= '0' && str[i] <= '9')
+		{
+			result *= 10;
+			result += str[i] - '0';
+		}
+		else if (str[i] == '-')
+			result *= -1;
+	}
+	return (result);
 }

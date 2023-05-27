@@ -12,6 +12,10 @@
 #define MAX_ARGS 200
 #define MAX_COMMAND 200
 
+#define BUFFER_SIZE 1024
+
+extern char **environ;
+
 /**
  * struct liststr - for singly linked list
  * @num: number
@@ -20,9 +24,9 @@
  */
 typedef struct liststr
 {
-        int num;
-        char *str;
-        struct liststr *next;
+	int num;
+	char *str;
+	struct liststr *next;
 } list_t;
 
 /**
@@ -44,32 +48,32 @@ typedef struct liststr
  * @line_count: count of lines
  * @readfd: file descriptor from which to read line input
  * @histcount: the count of history line numbers
- * @cmd_buf: the address of pointer to cmd_buf, indicates if chaining is required
+ * @cmd_buf: the address of pointer to cmd_buf, checks if chaining is required
  * @cmd_buf_type: CMD_type (&&, ||, ;)
  */
 
 typedef struct passarg
 {
-        list_t *env;
-        list_t *history;
-        list_t *alias;
-        char *arg_get;
-        char **argv;
-        char **envp;
-        char *path;
-        char *fname;
-        char **environ;
-        int argc;
-        int err_num;
-        int linecount_flag;
-        int env_changed;
-        int status;
-        unsigned int line_count;
+	list_t *env;
+	list_t *history;
+	list_t *alias;
+	char *arg_get;
+	char **argv;
+	char **envp;
+	char *path;
+	char *fname;
+	char **environ;
+	int argc;
+	int err_num;
+	int linecount_flag;
+	int env_changed;
+	int status;
+	unsigned int line_count;
 
-        int readfd;
-        int histcount;
-        char **cmd_buf;
-        int cmd_buf_type;
+	int readfd;
+	int histcount;
+	char **cmd_buf;
+	int cmd_buf_type;
 } arg_t;
 
 void shell_prompt(char **av, char **env);
@@ -83,5 +87,21 @@ int exit_shell(arg_t *arg);
 int _atoi(char *str);
 
 int _env(arg_t *arg);
+
+char *get_env(arg_t *arg, const char *name);
+int unset_env(arg_t *arg);
+int set_env(arg_t *arg);
+
+void _eputs(char *str);
+int _eputchar(char c);
+int _putfd(char c, int fd);
+int _putsfd(char *str, int fd);
+
+char *starts_with(const char *haystack, const char *needle);
+char *_strcat(char *dest, const char *src);
+char *_strcpy(char *dest, const char *src);
+char *_strdup(char *str);
+
+int main(int argc, char **argv, char **env);
 
 #endif

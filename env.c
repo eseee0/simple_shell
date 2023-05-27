@@ -9,14 +9,14 @@
 
 int _env(arg_t *arg)
 {
-        list_t *node = arg->env;
+	list_t *node = arg->env;
 
-        while (node)
-        {
-                write(STDOUT_FILENO, node->str, strlen(node->str));
-                write(STDOUT_FILENO, "\n", 1);
-                node = node->next;
-        }
-        return (0);
+	while (node)
+	{
+		write(STDOUT_FILENO, node->str, strlen(node->str));
+		write(STDOUT_FILENO, "\n", 1);
+		node = node->next;
+	}
+	return (0);
 }
 
