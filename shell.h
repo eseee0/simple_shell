@@ -24,9 +24,9 @@ extern char **environ;
  */
 typedef struct liststr
 {
-	int num;
-	char *str;
-	struct liststr *next;
+        int num;
+        char *str;
+        struct liststr *next;
 } list_t;
 
 /**
@@ -54,26 +54,26 @@ typedef struct liststr
 
 typedef struct passarg
 {
-	list_t *env;
-	list_t *history;
-	list_t *alias;
-	char *arg_get;
-	char **argv;
-	char **envp;
-	char *path;
-	char *fname;
-	char **environ;
-	int argc;
-	int err_num;
-	int linecount_flag;
-	int env_changed;
-	int status;
-	unsigned int line_count;
+        list_t *env;
+        list_t *history;
+        list_t *alias;
+        char *arg_get;
+        char **argv;
+        char **envp;
+        char *path;
+        char *fname;
+        char **environ;
+        int argc;
+        int err_num;
+        int linecount_flag;
+        int env_changed;
+        int status;
+        unsigned int line_count;
 
-	int readfd;
-	int histcount;
-	char **cmd_buf;
-	int cmd_buf_type;
+        int readfd;
+        int histcount;
+        char **cmd_buf;
+        int cmd_buf_type;
 } arg_t;
 
 void shell_prompt(char **av, char **env);
