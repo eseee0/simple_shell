@@ -77,7 +77,10 @@ typedef struct passarg
 } arg_t;
 
 void shell_prompt(char **av, char **env);
-void prompt(char **av);
+int _execute(char *cmd, char **argv);
+void handle_path(char *cmd);
+bool check_file_status(char *pathname);
+
 char *_getenv(char *key);
 size_t _strlen(const char *str);
 int _strcmp(const char *s1, const char *s2, size_t n);
@@ -103,5 +106,8 @@ char *_strcpy(char *dest, const char *src);
 char *_strdup(char *str);
 
 int main(int argc, char **argv, char **env);
+
+int _cd(arg_t *arg);
+
 
 #endif
